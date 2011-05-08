@@ -126,7 +126,7 @@ class ColorTool {
 	}
 	
 	public function to_html() {
-		return '#'.$this->to_hex($this->to_hex());
+		return '#'.$this->to_hex();
 	}
 	
 	public function to_rgb() {
