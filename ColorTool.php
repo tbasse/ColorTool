@@ -5,7 +5,7 @@ class ColorTool {
 	protected $rgbf = array();
 		
 	public function __construct() {
-		$this->rgbf = array(0,0,0);
+		$this->rgbf = array(0, 0, 0);
 	}
 	
 	public function hex($hex) {
@@ -23,7 +23,7 @@ class ColorTool {
 		return clone $this;
 	}
 
-	public function rgb($r,$g=false,$b=false) {
+	public function rgb($r, $g=FALSE, $b=FALSE) {
 		if( is_array($r) ) {
 			list($r, $g, $b) = $r;
 		}
@@ -34,7 +34,7 @@ class ColorTool {
 		return clone $this;
 	}
 
-	public function rgbp($r, $g=false, $b=false) {
+	public function rgbp($r, $g=FALSE, $b=FALSE) {
 		if( is_array($r) ) {
 			list($r, $g, $b) = $r;
 		}
@@ -45,7 +45,7 @@ class ColorTool {
 		return clone $this;
 	}
 	
-	public function hsl($h, $s=false, $l=false) {
+	public function hsl($h, $s=FALSE, $l=FALSE) {
 		if( is_array($h) ) {
 			list($h, $s, $l) = $h;
 		}
@@ -56,7 +56,7 @@ class ColorTool {
 		return clone $this;
 	}
 
-	public function is_hex($hex=false)	{
+	public function is_hex($hex=FALSE)	{
 		if(!$hex)
 			$hex = $this->_rgbf_to_hex();
 		return preg_match('/^#?([0-9a-f]{3}|[0-9a-f]{6})$/i', $hex) == 1;
@@ -66,12 +66,11 @@ class ColorTool {
 		$delta = $delta / 100;
 		$hsl1 = $color1->_rgbf_to_hsl();
 		$hsl2 = $color2->_rgbf_to_hsl();
-		if(
-			abs( $hsl1['h'] - $hsl2['h'] ) < ( (50*$delta) / 360 )
+		if( abs( $hsl1['h'] - $hsl2['h'] ) < ( (50*$delta) / 360 )
 			&& abs( $hsl1['s'] - $hsl2['s'] ) < ( (60*$delta) /100)
 			&& abs( $hsl1['l'] - $hsl2['l'] ) < ( (60*$delta) /100)
-		) return true;
-		return false;
+		) return TRUE;
+		return FALSE;
 	}
 
 	public function invert() {
